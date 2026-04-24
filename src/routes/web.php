@@ -22,7 +22,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
     })->name('dashboard');
 
     Route::get('/users', function () {
-        return view('admin.blank', ['title' => 'Users Management']);
+        return view('admin.users.index', ['title' => 'Users Management']);
     })->name('users');
 
     Route::get('/settings', function () {
