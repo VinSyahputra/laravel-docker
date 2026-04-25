@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 
@@ -21,9 +22,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
         return view('admin.dashboard');
     })->name('dashboard');
 
-    Route::get('/users', function () {
-        return view('admin.users.index', ['title' => 'Users Management']);
-    })->name('users');
+    Route::get('/users',[UserController::class,'index'])->name('admin.users.index');
 
     Route::get('/settings', function () {
         return view('admin.blank', ['title' => 'Admin Settings']);
